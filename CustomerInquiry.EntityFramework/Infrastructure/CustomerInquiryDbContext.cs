@@ -1,6 +1,7 @@
 ﻿using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using CustomerInquiry.Entities;
+using CustomerInquiry.Entities.Base;
 using CustomerInquiry.EntityFramework.Configurations;
 
 namespace CustomerInquiry.EntityFramework.Infrastructure
@@ -27,6 +28,8 @@ namespace CustomerInquiry.EntityFramework.Infrastructure
             modelBuilder.HasDefaultSchema("dbo");
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
             modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
+            
+            modelBuilder.Ignore<Entity>();
 
             modelBuilder.Configurations.Add(new CurrencyConfiguration());
             modelBuilder.Configurations.Add(new TransactionConfiguration());

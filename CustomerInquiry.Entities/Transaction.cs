@@ -1,12 +1,11 @@
 ﻿using System;
+using CustomerInquiry.Entities.Base;
 using CustomerInquiry.Entities.Types;
 
 namespace CustomerInquiry.Entities
 {
-    public class Transaction
+    public class Transaction : Entity
     {
-        public int Id { get; set; }
-
         public DateTime DateTime { get; set; }
 
         public int CurrencyId { get; set; }

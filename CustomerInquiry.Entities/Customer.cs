@@ -1,16 +1,15 @@
 ﻿using System.Collections.Generic;
+using CustomerInquiry.Entities.Base;
 
 namespace CustomerInquiry.Entities
 {
-    public class Customer
+    public class Customer : Entity
     {
         public Customer()
         {
             Transactions = new HashSet<Transaction>();
         }
-
-        public int Id { get; set; }
-
+        
         public string Name { get; set; }
 
         public string ContactEmail { get; set; }
