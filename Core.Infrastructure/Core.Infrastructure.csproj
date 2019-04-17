@@ -40,6 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\ISearchModel.cs" />
+    <Compile Include="Dal\Criterias\BaseCriteriaBuilder.cs" />
+    <Compile Include="Dal\Criterias\ICriteriaBuilder.cs" />
     <Compile Include="Dal\Queries\IQueryBuilder.cs" />
     <Compile Include="Dal\Queries\EntityQuery.cs" />
     <Compile Include="Dal\Queries\QueryBuilder.cs" />
@@ -48,6 +51,7 @@
     <Compile Include="Dal\IUnitOfWorkAsync.cs" />
     <Compile Include="Dal\Queries\IQuaryableProvider.cs" />
     <Compile Include="Dal\Queries\IQuery.cs" />
+    <Compile Include="Extensions\LinqExtensions.cs" />
     <Compile Include="Helpers\Helper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
