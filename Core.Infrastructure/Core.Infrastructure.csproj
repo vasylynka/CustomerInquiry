@@ -40,10 +40,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dal\Queries\IQueryBuilder.cs" />
+    <Compile Include="Dal\Queries\EntityQuery.cs" />
+    <Compile Include="Dal\Queries\QueryBuilder.cs" />
+    <Compile Include="Extensions\DalExtensions.cs" />
+    <Compile Include="Dal\IGenericRepositoryAsync.cs" />
+    <Compile Include="Dal\IUnitOfWorkAsync.cs" />
+    <Compile Include="Dal\Queries\IQuaryableProvider.cs" />
+    <Compile Include="Dal\Queries\IQuery.cs" />
+    <Compile Include="Helpers\Helper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Dal\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

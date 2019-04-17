@@ -51,7 +51,11 @@
     <Compile Include="Configurations\CurrencyConfiguration.cs" />
     <Compile Include="Configurations\CustomerConfigration.cs" />
     <Compile Include="Configurations\TransactionConfiguration.cs" />
+    <Compile Include="EntityFrameworkRepositoryAsync.cs" />
+    <Compile Include="EntityFrameworkUnitOfWorkAsync.cs" />
+    <Compile Include="Extensions\LinqDataExtension.cs" />
     <Compile Include="Infrastructure\CustomerInquiryDbContext.cs" />
+    <Compile Include="Infrastructure\EntityFrameworkQueryableProvider.cs" />
     <Compile Include="Migrations\201904171731087_init.cs" />
     <Compile Include="Migrations\201904171731087_init.Designer.cs">
       <DependentUpon>201904171731087_init.cs</DependentUpon>
@@ -64,6 +68,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Core.Infrastructure\Core.Infrastructure.csproj">
+      <Project>{681E3E11-DAD0-4023-84EA-430CE3DC7077}</Project>
+      <Name>Core.Infrastructure</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CustomerInquiry.Entities\CustomerInquiry.Entities.csproj">
       <Project>{28c60069-6047-4662-b7a3-9acca717c00c}</Project>
       <Name>CustomerInquiry.Entities</Name>
