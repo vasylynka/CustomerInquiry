@@ -23,8 +23,15 @@ namespace CustomerInquiry.Services.Implementations
 
         public async Task<CustomerViewModel> GetAsync(CustomerInquirySearchModel query)
         {
+            query.ThrowNoValidIf(q => string.IsNullOrEmpty(q.Email) && !q.CustomerID.HasValue,
+                "Bad Request");
+            query.ThrowNoValidIf(q => !string.IsNullOrEmpty(q.Email) && !q.Email.IsValidEmail(),
+                "Invalid Email");
+
             var searchPredicate = new CustomerInquirySearchCriteriaBuilder().Build(query);
             var customer = await _unitOfWorkAsync.LoadAsync(searchPredicate, x => x.Transactions);
+
+            customer.ThrowIfNull("Customer Inquiry is not found");
 
             var recentTransactions = customer.Transactions
                 .OrderByDescending(t => t.DateTime)
@@ -41,7 +48,7 @@ namespace CustomerInquiry.Services.Implementations
 
             return new CustomerViewModel
             {
-                CustomerID = customer.Id,
+                Id = customer.Id,
                 Name = customer.Name,
                 Email = customer.ContactEmail,
                 Mobile = customer.MobileNo,

@@ -46,11 +46,16 @@
     <Compile Include="Dal\Queries\IQueryBuilder.cs" />
     <Compile Include="Dal\Queries\EntityQuery.cs" />
     <Compile Include="Dal\Queries\QueryBuilder.cs" />
+    <Compile Include="Exceptions\ErrorCodeException.cs" />
+    <Compile Include="Exceptions\ErrorDescriptionAttribute.cs" />
+    <Compile Include="Exceptions\ObjectNotFoundException.cs" />
+    <Compile Include="Exceptions\ValidationException.cs" />
     <Compile Include="Extensions\DalExtensions.cs" />
     <Compile Include="Dal\IGenericRepositoryAsync.cs" />
     <Compile Include="Dal\IUnitOfWorkAsync.cs" />
     <Compile Include="Dal\Queries\IQuaryableProvider.cs" />
     <Compile Include="Dal\Queries\IQuery.cs" />
+    <Compile Include="Extensions\ExceptionExtension.cs" />
     <Compile Include="Extensions\LinqExtensions.cs" />
     <Compile Include="Helpers\Helper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

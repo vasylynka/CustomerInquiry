@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Linq;
+using System.Net.Mail;
 
 namespace Core.Infrastructure.Helpers
 {
@@ -19,6 +20,19 @@ namespace Core.Infrastructure.Helpers
                 .SingleOrDefault();
 
             return dn?.Description;
+        }
+
+        public static bool IsValidEmail(this string email)
+        {
+            try
+            {
+                var _ = new MailAddress(email);
+                return true;
+            }
+            catch (FormatException)
+            {
+                return false;
+            }
         }
     }
 }

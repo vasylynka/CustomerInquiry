@@ -4,8 +4,6 @@ namespace CustomerInquiry.Services.Models.ViewModels
 {
     public class CustomerViewModel : IdentityViewModel
     {
-        public int CustomerID { get; set; }
-
         public string Name { get; set; }
 
         public string Email { get; set; }
