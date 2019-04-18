@@ -2,15 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using Core.Infrastructure.Common;
 using Core.Infrastructure.Extensions;
 
 namespace Core.Infrastructure.Dal.Criterias
 {
+    /// <summary>
+    /// Base class for search criteria builders
+    /// </summary>
+    /// <typeparam name="TEntity">Entity model</typeparam>
+    /// <typeparam name="TModel">Criteria model</typeparam>
     public abstract class BaseCriteriaBuilder<TEntity, TModel> : ICriteriaBuilder<TEntity, TModel>
         where TEntity : class
-        where TModel : class
+        where TModel : class, ISearchModel
     {
-        private readonly HashSet<Criteria> _criterias = new HashSet<Criteria>();
+        private readonly List<Criteria> _criterias = new List<Criteria>();
 
         public interface ICriteria
         {
@@ -38,6 +44,9 @@ namespace Core.Infrastructure.Dal.Criterias
 
             public Expression<Func<TEntity, bool>> GetWhenValid(TModel model)
             {
+                if (_validation == null)
+                    return x => true;
+
                 if (_validation(model))
                     return _criteria(model);
 
